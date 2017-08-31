@@ -72,10 +72,10 @@ function wrap($longString, $maxLineLength)
     //format $output with line break
     foreach ($output as $valWrapWord) {
 
-        if ($i == 0) {
-            $returnStr .= trim($valWrapWord) . "\n";
-        } else if ($i == $arr_len - 1) {
+        if ($i == $arr_len - 1) {
             $returnStr .= trim($valWrapWord);
+        } else {
+            $returnStr .= trim($valWrapWord) . "\n";
         }
         $i++;
     }
@@ -84,8 +84,8 @@ function wrap($longString, $maxLineLength)
 
 }
 
-$str = "test test";
-$str = "word";
+$str = "test abcd";
+//$str = "word";
 $len = 2;
 
 $returnString = wrap($str, $len);
