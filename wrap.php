@@ -1,9 +1,16 @@
 <?php
 /**
+ * Created by PhpStorm.
+ * User: vidura
+ * Date: 31/08/17
+ * Time: 3:58 PM
+ */
+
+/**
  * Function wrap
  *
- * @param $longString - string to be wrap
- * @param $maxLineLength (INT)
+ * @param $longString (String) - string to be wrap
+ * @param $maxLineLength (Int)
  * @return string
  */
 function wrap($longString, $maxLineLength)
