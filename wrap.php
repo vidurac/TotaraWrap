@@ -48,11 +48,11 @@ function wrap($longString, $maxLineLength)
 
                 if (($currentLength + $wordLength) < $maxLineLength) {
 
-                    $output[$index] .= $word . ' ';
+                    @$output[$index] .= $word . ' ';
                     $wordLength += 1;
 
                 } else {
-                    $output[$index] .= $word;
+                    @$output[$index] .= $word;
                 }
 
                 $currentLength += $wordLength;
@@ -60,16 +60,24 @@ function wrap($longString, $maxLineLength)
                 $index += 1;
 
                 $currentLength = $wordLength + 1;
-                $output[$index] = $word . ' ';
+                @$output[$index] = $word . ' ';
             }
 
         }
 
     }
 
+    $i = 0;
+    $arr_len = count($output);
     //format $output with line break
     foreach ($output as $valWrapWord) {
-        $returnStr .= trim($valWrapWord) . "\n";
+
+        if ($i == 0) {
+            $returnStr .= trim($valWrapWord) . "\n";
+        } else if ($i == $arr_len - 1) {
+            $returnStr .= trim($valWrapWord);
+        }
+        $i++;
     }
 
     return $returnStr;
@@ -77,9 +85,8 @@ function wrap($longString, $maxLineLength)
 }
 
 $str = "test test";
-//$str = "test test moretest is a anoher test heres";
-$len = 3;
-
+$str = "word";
+$len = 2;
 
 $returnString = wrap($str, $len);
 echo $returnString;
